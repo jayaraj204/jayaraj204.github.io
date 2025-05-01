@@ -1,0 +1,612 @@
+body {
+  font-family: 'Arial', sans-serif;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures the page stretches */
+  text-align: center;
+  flex-direction: column;
+  background-color: #ab5852; /* pure black */
+  overflow: auto; /* Allows scrolling */
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation Styles */
+nav ul {
+  list-style: none;
+  display: flex;
+  position: absolute;
+  top: 7px;
+  right: 20px;
+  gap: 15px;
+  padding: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #e9ff97; /* Bright blue for hover effect */
+  transform: scale(1.05);
+}
+
+nav ul li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ab5852, #e07b77, #ff9f8c, #ffd6ce);
+  transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::before {
+  width: 100%;
+}
+
+nav ul li i {
+  font-size: 16px;
+  color: #ffe3f9;
+  transition: transform 0.3s ease;
+}
+
+nav ul li a:hover i {
+  transform: rotate(360deg);
+  color: #e9ff97;
+}
+/* Resume Button */
+nav ul li .resume-button {
+  color: #ffffff;
+  background-color: #ff9f8c;
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  position: relative; /* NOT fixed */
+}
+
+nav ul li .resume-button:hover {
+  background-color: #ffd18e;
+  color: #1a1a1a;
+  transform: scale(1.1);
+}
+
+/* Glowing Ring Effect */
+nav ul li .resume-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background: transparent;
+  box-shadow: 0 0 0 3px #ffd18e, 0 0 0 6px #e9ff97, 0 0 0 9px #ffd18e;
+  animation: movingRing 2s linear infinite;
+  z-index: -1;
+}
+/* Keyframe for Ring Animation */
+@keyframes movingRing {
+  0% {
+    box-shadow: 0 0 0 3px #ffd18e, 0 0 0 6px #e9ff97, 0 0 0 9px #ffd18e;
+  }
+  50% {
+    box-shadow: 0 0 0 6px #ffd18e, 0 0 0 9px #e9ff97, 0 0 0 12px #ffd18e;
+  }
+  100% {
+    box-shadow: 0 0 0 3px #ffd18e, 0 0 0 6px #e9ff97, 0 0 0 9px #ffd18e;
+  }
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: float 5s ease-in-out infinite;
+}
+.particle-js {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 209, 142, 0.4);
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(var(--y)) translateX(var(--x));
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.2;
+  }
+}
+
+/* Navbar - fixed on top */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  /* Other navbar styles like background, padding etc. */
+}
+
+/* Section holding the cards */
+.projects-section {
+  padding-top: 140px; /* creates space below fixed navbar */
+}
+
+/* Horizontal scroll container for cards */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card, .project-card {
+  position: relative;
+  background: #f4cebe; /* Dark soft grey (not black, not transparent) */
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 209, 142, 0.3); /* Soft warm glow */
+  transition: 0.4s ease;
+  margin-top: 10px;
+}
+
+/* Hover Effects */
+.card:hover, .project-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(255, 209, 142, 0.5);
+  animation: glowPulse 1.5s ease-in-out infinite;
+}
+
+/* Title */
+.card h2 {
+  color: #000000;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px #ffffff;
+}
+
+/* Tech stack tags */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.tech-stack span {
+  background: rgba(249, 164, 36, 0.2);
+  border: 1px solid #f8bf69;
+  color: #b1453d;
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  text-shadow: none;
+}
+
+/* Description */
+.description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #000000;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.buttons a {
+  flex: 1;
+  text-align: center;
+  background: #ffd18e;
+  color: #1a1a1a;
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 5px #ffd18e;
+}
+
+.buttons a:hover {
+  background: #e9ff97;
+  color: #1a1a1a;
+  box-shadow: 0 0 10px #e9ff97;
+}
+
+/* Project image */
+.project-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+  box-shadow: 0 0 6px rgba(255, 209, 142, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover .project-image {
+  transform: scale(1.03);
+  box-shadow: 0 0 12px rgba(255, 209, 142, 0.4);
+}
+
+/* Glowing animation */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 209, 142, 0.4), 0 0 16px rgba(255, 209, 142, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 209, 142, 0.6), 0 0 24px rgba(255, 209, 142, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 209, 142, 0.4), 0 0 16px rgba(255, 209, 142, 0.2);
+  }
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffd18e, 0 0 20px #ffd18e;
+  margin-bottom: 5px;
+  animation: fadeInGrow 2s ease-out forwards;
+}
+
+.projects-section {
+  padding-top: 0; /* ✅ adjust this if needed */
+}
+
+.card-container {
+  padding-top: 140px;
+}
+#projects h1 {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+#projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 20px 10px; /* top padding 0 */
+  gap: 0px; /* remove vertical gap between flex items */
+}
+
+@keyframes fadeInGrow {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (max-width: 768px) {
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  #projects {
+    gap: 10px;
+    padding-top: 80px; 
+  }
+}
+:root {
+  --navbar-height: 100px;
+}
+
+.navbar {
+  position: relative; /* ✅ Or simply remove 'position' entirely */
+  width: 100%;
+  z-index: 10; /* optional */
+  /* keep your padding/margin/color as needed */
+}
+
+@media (max-width: 768px) {
+  #projects {
+    padding: 20px;
+  }
+
+  #projects h1 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .card {
+    position: relative;
+    background: #f4cebe   ; /* Outer card background */
+    box-shadow: 0 0 15px rgba(255, 209, 142, 0.3);
+    transition: 0.4s ease;
+    margin-top: 10px;
+    overflow: hidden; /* So inner background stays inside border */
+    width: 90%;
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 209, 142, 0.5);
+    animation: glowPulse 1.5s ease-in-out infinite;
+  }
+  .card-content {
+    border-radius: 15px;
+    padding: 1.2rem;
+    color: #1a1a1a; /* Text inside should be dark for contrast */
+    }
+    /* Title inside */
+    .card-content h2 {
+    font-size: 1.5rem;
+    color: #ab5852;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .card h2 {
+    font-size: 1.5rem;
+    color: #000000;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 4px #ffffff;
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .tech-stack span {
+    font-size: 0.8rem;
+    background: rgba(249, 164, 36, 0.2);
+    border: 1px solid #f8bf69;
+    color: #b1453d;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #000000;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  /* Button inside card */
+.buttons a {
+  flex: 1;
+  text-align: center;
+  background: #ffd18e;
+  color: #1a1a1a;
+  padding: 0.5rem;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.buttons a:hover {
+  background: #e9ff97;
+  color: #1a1a1a;
+  box-shadow: 0 0 10px #e9ff97;
+}
+}
+.hamburger {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  background: #fff;
+  height: 3px;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Hide hamburger menu on desktop */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+}
+
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    width: 20px;
+    height: 14px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .hamburger span {
+    height: 2px;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    width: 70%;
+    max-width: 250px;
+    height: auto;
+    background: linear-gradient(90deg, #ac5953, #d26460, #d47461, #e78976);
+    padding: 20px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  nav ul.open {
+    display: flex;
+    animation: slideIn 0.3s ease-in-out forwards;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+/* Fully Transparent "LET'S GO!!" Button */
+.lets-go-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.85rem;
+  color: #9c4646;
+  background-color: transparent !important;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: none !important;
+}
+
+/* Circle icon with no fill */
+.lets-go-btn .circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(178, 67, 67, 0.3);
+  background-color: transparent !important;
+  transition: border-color 0.3s ease;
+}
+
+/* Arrow inside the circle */
+.lets-go-btn .arrow {
+  font-size: 0.9rem;
+  color: #ab5852;
+  transition: color 0.3s ease;
+}
+
+/* Text on the right */
+.lets-go-btn .text {
+  color: #ab5852;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+/* Hover Effects - still visible, not glowing */
+.lets-go-btn:hover .circle {
+  border-color: #854511;
+}
+
+.lets-go-btn:hover .arrow {
+  color: #854511;
+}
+
+.lets-go-btn:hover .text {
+  color: #854511;
+}
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+  .lets-go-btn {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    gap: 6px;
+  }
+
+  .lets-go-btn .circle {
+    width: 26px;
+    height: 26px;
+  }
+
+  .lets-go-btn .text {
+    font-size: 0.8rem;
+  }
+}
+
+

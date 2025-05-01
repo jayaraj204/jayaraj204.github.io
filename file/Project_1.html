@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tree Biodiversity Mapping | Jayaraj</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #ffffff;
+      --accent-color: #ffd166;
+      --bg-color: #9e4e48;
+      --text-color: #f0f0f0;
+      --font-main: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-color);
+      background-image: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.05) 0,
+        rgba(255, 255, 0, 0.05) 1px,
+        transparent 1px,
+        transparent 20px
+      );
+      color: var(--text-color);
+      line-height: 1.7;
+      padding: 5rem 2rem 10rem;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08), transparent 40%),
+                  radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.06), transparent 40%),
+                  linear-gradient(135deg, rgba(255, 255, 255, 0.02) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.02) 50%, rgba(255, 255, 255, 0.02) 75%, transparent 75%, transparent);
+      background-size: 100% 100%, 100% 100%, 40px 40px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header, section, .image-section {
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      margin-bottom: 2rem;
+      animation: fadeIn 1.5s ease;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      color: var(--primary-color);
+      animation: glowText 3s ease-in-out infinite alternate;
+    }
+
+    .year {
+      font-size: 5rem;
+      color: var(--accent-color);
+      margin-top: 0.5rem;
+      font-family: 'Mightype Script', 'Montserrat', sans-serif;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 0;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+      animation: slideIn 1.2s ease-in-out both;
+    }
+
+    section ul,
+    section ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    section ul li,
+    section ol li {
+      margin-bottom: 0.5rem;
+    }
+
+    section pre {
+      background-color: #772a26;
+      color: #ffe082;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+
+    section p {
+      margin-bottom: 1rem;
+    }
+
+    .image-section {
+      margin: 2rem auto;
+      animation: fadeInUp 1s ease;
+      max-width: 900px;
+    }
+
+    .image-section img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    .nav-circle {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+    z-index: 999;
+    text-decoration: none;
+    opacity: 0; /* Initially hidden */
+    pointer-events: none; /* Prevent interaction when hidden */
+  }
+
+  .nav-circle.show {
+    opacity: 1; /* Visible when class is added */
+    pointer-events: auto; /* Allow interaction */
+  }
+
+  .nav-circle:hover {
+    transform: translateY(-10px) scale(1.1); /* Slightly more prominent hover effect */
+    background-color: #ffc107;
+  }
+
+  /* Mobile layout adjustments */
+  @media screen and (max-width: 768px) {
+    .nav-circle {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      bottom: 20px; /* Adjust for smaller screen size */
+    }
+  }
+
+
+    .back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .back-button.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .back-button:hover {
+    background-color: var(--accent-color);
+    color: #000;
+  }
+
+    /* Social Media Icons */
+    .social-media {
+      margin-top: 20px;
+      display: flex;
+      gap: 40px;
+      position: fixed;
+      bottom: 130px; /* increased from 20px to 90px */
+      left: 30%;
+      transform: translateX(-50%);
+    }
+
+    .social-media a {
+      text-decoration: none;
+      color: #ffd18e;
+      font-size: 35px;
+      transition: transform 0.3s ease, color 0.3s ease;
+      animation: bounce 1.5s infinite alternate;
+    }
+
+    .social-media a:hover {
+      color: #e9ff97;
+      transform: scale(1.3);
+      animation: none;
+    }
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes increaseSize {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.nav-circle,
+.social-media {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.nav-circle.show,
+.social-media.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glowText {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+  }
+}
+.read-article-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .read-article-btn {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      gap: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .read-article-btn .circle-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1.5px solid rgb(244, 197, 94);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .read-article-btn .arrow {
+      font-size: 16px;
+      color: var(--primary-color);
+    }
+
+    .read-article-btn .text {
+      text-transform: uppercase;
+      color: #e8c65f;
+    }
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+      body {
+        padding: 3rem 1rem 6rem;
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+      }
+
+      .nav-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+      }
+
+      .year{
+        font-size: 1.2rem;
+      }
+
+      .social-media {
+        gap: 20px;
+        bottom: 100px; /* Adjusted for mobile */
+      }
+
+      .social-media a {
+        font-size: 30px;
+      }
+
+      .back-button {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+
+      .image-section img {
+        width: 100%;
+      }
+      
+      .back-button {
+      top: 15px;
+      left: 15px;
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+    .read-article-btn {
+    transform: translate(-45px, -35px); /* slightly left and up */
+  }
+    
+}
+</style>
+</head>
+<body>
+  <header>
+    <h1>Roots of Resilience: Leveraging GIS and Python to
+      Map Campus Biodiversity Hotspots
+     </h1>
+    <div class="year">2024</div>
+  </header>
+
+  <section>
+    <h2>Project Overview</h2>
+    <p>This interdisciplinary project aimed to analyze and visualize the biodiversity of tree populations across five educational institutions: Patrician College of Arts and Science, St. Patrick’s Anglo-Indian School, St. Patrick’s ICSE School, St. Michael’s School, and the Children’s Block. Over a span of three months, we conducted a comprehensive ecological survey and created an interactive geospatial representation of the tree distribution using Python and GIS tools.
+
+      The initiative focused on collecting detailed data on tree species, geographic coordinates, and population counts to gain insights into spatial patterns, species richness, and ecological health. Through a data-driven methodology, the project offered actionable knowledge for biodiversity conservation and environmentally sustainable campus development.</p>
+  </section>
+
+  <section>
+    <h2>Objectives</h2>
+    <p>
+      This project aimed to analyze biodiversity across five campuses by leveraging spatial data and Python-based tools. The goal was to provide insights into tree distribution, species richness, and ecological balance to support sustainability efforts.
+    </p>
+    <ul>
+      <li>To systematically document and classify tree species across the campus zones.</li>
+      <li>Analyze distribution by type, name, and quantity</li>
+      <li>Generate professional visualizations</li>
+      <li>Map tree locations interactively</li>
+      <li>Build a complete analysis pipeline</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>Technologies Used</h2>
+    <p>
+      A range of data analysis and visualization technologies were used to streamline workflows, handle large datasets, and build interactive spatial maps. The integration of these tools enabled the transformation of raw ecological data into actionable insights.
+    </p>
+    <ul>
+      <li>Python (Jupyter Notebook)</li>
+      <li>Pandas, NumPy</li>
+      <li>Matplotlib, Seaborn</li>
+      <li>Folium (for mapping)</li>
+      <li>Microsoft Excel (data entry and cleaning)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <p>
+      This project reflects a multidisciplinary skill set in environmental research, data science, and geospatial technology. From manual field surveys to creating professional, interactive maps, each stage highlighted the practical application of technical and analytical skills.
+    </p>
+    <ul>
+      <li>Manual field data collection</li>
+      <li>Data cleaning and validation</li>
+      <li>Exploratory Data Analysis (EDA)</li>
+      <li>Professional data visualizations</li>
+      <li>Geospatial mapping</li>
+      <li>Insightful project reporting</li>
+    </ul>
+  </section>
+  
+  <section>
+    <h2>Structure</h2>
+    <pre>
+📦 project-root/
+├── 📂 data/
+│   └── trees_dataset.xlsx
+├── 📂 notebooks/
+│   └── tree_analysis.ipynb
+├── 📂 images/
+│   └── charts, dashboard screenshots
+└── 📄 README.md
+    </pre>
+  </section>
+
+  <section>
+    <h2>Conclusion</h2>
+    <p>This project highlighted the significance of integrating computer science and environmental science to promote ecological sustainability. Through the documentation and analysis of 892 trees across 48 different species, we identified key biodiversity hotspots and areas needing ecological attention.
+
+      The interactive maps and statistical findings generated during the study offer practical applications for campus management, educational engagement, and future environmental planning. The successful execution of this project stands as a testament to the power of data analytics in ecological conservation and underscores the importance of using technology to build resilient, sustainable urban ecosystems.</p>
+      <div class="read-article-wrapper">
+        <a href="../files/Research Paper-1.pdf" target="_blank" class="read-article-btn">
+          <span class="circle-icon">
+            <span class="arrow">&#8250;</span>
+          </span>
+          <span class="text">READ MY ARTICLE!</span>
+        </a>
+      </div>      
+  </section>
+   
+
+  <a class="nav-circle" href="Project_2.html" title="View Another Project">&gt;</a>
+  <button class="back-button" onclick="history.back()">&larr; Back</button>
+
+  <div class="social-media">
+    <a href="https://www.linkedin.com/in/jayaraj2004/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a href="https://github.com/Jayaraj-04" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+  </div>
+
+  <script>
+    const navCircle = document.querySelector(".nav-circle");
+    const socialIcons = document.querySelector(".social-media");
+    const backButton = document.querySelector(".back-button");
+
+    let lastScrollTop = 0; // Track the last scroll position
+
+    window.onscroll = function () {
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight || window.innerHeight;
+
+      const isNearBottom = scrollTop + clientHeight >= scrollHeight - 100;
+
+      // Show navCircle and social icons only near the bottom of the page
+      if (isNearBottom) {
+        navCircle.classList.add("show");
+        socialIcons.classList.add("show");
+      } else {
+        navCircle.classList.remove("show");
+        socialIcons.classList.remove("show");
+      }
+
+      // Back button visibility based on scroll direction
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      // If scrolling down, hide the back button
+      if (currentScroll > lastScrollTop) {
+        backButton.classList.add("hidden");
+      } else {
+        // Scrolling up
+        if (currentScroll <= 50) { // Show back button when near the top
+          backButton.classList.remove("hidden");
+        }
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    };
+</script>
+</body>
+</html>

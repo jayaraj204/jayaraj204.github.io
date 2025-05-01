@@ -1,0 +1,716 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container Background */
+.containers.body {
+  background-color: #000;
+}
+ /* Ensure the container takes full width and is responsive */
+ .containers {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Adjust the font size for very small screens */
+@media (max-width: 480px) {
+  svg text {
+    font-size: 15vw; 
+  }
+}
+
+/* SVG Styling */
+svg {
+  position: absolute;
+  top: -5%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+
+text {
+  fill: url(#imagePattern);
+  font-family: "Protest Guerrilla", sans-serif;
+  font-size: 20px;
+  letter-spacing: 5px;
+  stroke: #ffffff;
+  stroke-width: 1px;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  filter: drop-shadow(0 0 5px #ffffff);
+}
+
+/* Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ab5852; /* pure black */
+  color: #ffffff; /* very soft light text for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  flex-direction: column;
+  background-size: cover;
+  margin: 0;
+
+}
+
+/* Navigation Styles */
+nav ul {
+  list-style: none;
+  display: flex;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  gap: 15px;
+  padding: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 15px;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #e9ff97;
+  transform: scale(1.05);
+}
+
+nav ul li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ab5852, #e07b77, #ff9f8c, #ffd6ce);
+  transition: width 0.3s ease-in-out;
+}
+
+nav ul li a:hover::before {
+  width: 100%;
+}
+
+nav ul li i {
+  font-size: 16px;
+  color: #ffe3f9;
+  transition: transform 0.3s ease;
+}
+
+nav ul li a:hover i {
+  transform: rotate(360deg);
+  color: #e9ff97;
+}
+
+/* Resume Button */
+nav ul li .resume-button {
+  background-color: #ff9f8c;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 10px 25px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  position: relative;
+}
+
+nav ul li .resume-button:hover {
+  background-color: #ffd18e;
+  color: #1a1a1a;
+  transform: scale(1.05);
+}
+
+/* Glowing Ring Effect */
+nav ul li .resume-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background: transparent;
+  box-shadow: 0 0 0 3px #ffd18e, 0 0 0 6px #e9ff97, 0 0 0 9px #ffd18e;
+  animation: movingRing 3s infinite ease-in-out;
+  z-index: -1;
+}
+
+/* Keyframe for Ring Animation */
+@keyframes movingRing {
+  0% {
+    box-shadow: 0 0 0 3px #ffd18e, 0 0 0 6px #e9ff97, 0 0 0 9px #ffd18e;
+  }
+  50% {
+    box-shadow: 0 0 0 6px #ffd18e, 0 0 0 9px #e9ff97, 0 0 0 12px #ffd18e;
+  }
+  100% {
+    box-shadow: 0 0 0 3px #ffd18e, 0 0 0 6px #e9ff97, 0 0 0 9px #ffd18e;
+  }
+}
+
+/* Typing Effect for <h3> */
+/* Typing effect base */
+.typewriter h3 {
+  font-family: 'Playfair Display', cursive;
+  font-size: 110%;
+  line-height: 1.5;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  margin: 20px 0;
+  color: #ffffff;
+}
+
+/* Typing Keyframe */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+
+/* Headings */
+h1 {
+  font-size: 36px;
+  color: #FFD18E; /* soft light purple */
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  text-shadow: 
+  0 0 5px #AD49E1,
+  0 0 10px #7A1CAC,
+  0 0 15px #7A1CAC;
+    animation: glowing 1.5s infinite alternate;
+}
+
+h2 {
+  font-family: 'Playfair Display', monospace;
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #ffffff; /* medium purple */
+}
+
+/* Main Content */
+.main-content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: -10px; /* move it up */
+  gap: 30px;
+  flex-wrap: wrap;
+  text-align: left;
+  opacity: 0;
+  animation: fadeIn 2s forwards, increaseSize 2s forwards;
+}
+
+.image-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 20px #2ecc71;
+  opacity: 0;
+  animation: fadeIn 2s 0.5s forwards, increaseSize 2s 0.5s forwards;
+  position: relative;
+}
+
+.image-section img {
+  width: 120%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+.text-section {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 60%;
+  opacity: 0;
+  animation: fadeIn 2s 0.5s forwards, increaseSize 2s 0.5s forwards;
+}
+
+/* Social Media Icons */
+.social-media {
+  margin-top: 20px;
+  display: flex;
+  gap: 40px;
+}
+
+.social-media a {
+  text-decoration: none;
+  color: #ffd18e;
+  font-size: 24px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  animation: bounce 1.5s infinite alternate;
+}
+
+.social-media a:hover {
+  color: #e9ff97;
+  transform: scale(1.3);
+  animation: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes increaseSize {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Highlighted Text */
+.highlight {
+  color: #ffd18e; /* soft coral */
+  font-weight: bold;
+}
+
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px;
+  opacity: 0.8;
+}
+@media (max-width: 768px) {
+  footer {
+    font-size: 12px;
+    margin-top: 40px;
+    padding: 10px;
+  }
+}
+
+
+/* Particle Effects */
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 209, 142, 0.4);
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(var(--y)) translateX(var(--x));
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.2;
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+}
+
+/* Splash Screen */
+#splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;  /* align items to top */
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.splash-name {
+  font-size: clamp(2rem, 6vw, 4rem);  /* responsive */
+  color: white;
+  margin: 280px auto 0 auto; /* vertical margin + center horizontally */
+  text-align: center;
+  font-family: 'Mightype Script', 'Montserrat', sans-serif;
+  text-shadow: 0 0 10px white, 0 0 20px white;
+  animation: glowFade 3s ease-in-out forwards;
+}
+
+
+@keyframes glowFade {
+  0% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 10px white, 0 0 20px white;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+
+#splash.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.logo-svg svg {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}
+
+/* Hamburger Menu Styling */
+.hamburger {
+  position: fixed; 
+  top: 20px; 
+  right: 20px; 
+  z-index: 1001; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  width: 30px; 
+  height: 20px; 
+  cursor: pointer; 
+}
+
+.hamburger span {
+  background: #fff;
+  height: 3px;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+/* 'X' transformation */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+  nav {
+    position: relative;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 45px; 
+    right: 0;
+    width: 70%;
+    max-width: 250px;
+    height: auto;
+    background: linear-gradient(90deg, #ac5953, #d26460, #d47461, #e78976);
+    padding: 20px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border-radius: 20px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  nav ul.open {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hamburger {
+    display: flex;
+    position: fixed;
+    top: 10px; 
+    right: 20px;
+    z-index: 1001;
+    transform: scale(0.8);
+  }
+  
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+  }
+  .hamburger svg {
+    width: 24px;
+    height: 24px;
+  }  
+  .hamburger:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+/* Remove typing animation in mobile */
+@media (max-width: 768px) {
+  #line1,
+  #line2 {
+    animation: none !important;
+    border: none;
+    white-space: normal;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #line1,
+  #line2 {
+    font-size: 16px;
+  }
+}
+@media (max-width: 600px) {
+  .splash-name {
+    margin: 150px auto 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  svg {
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 90%;
+    height: auto;
+  }
+
+  .main-content {
+    flex-direction: column;
+    margin-top: 50px;
+    padding: 0 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .text-section,
+  .image-section {
+    width: 100%;
+  }
+
+  .text-section h2 {
+    font-size: 24px;
+  }
+
+  .typewriter h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .social-media {
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hamburger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+  }
+
+  nav ul {
+    width: 100%;
+    right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .typewriter h3 {
+    font-size: 14px;
+  }
+
+  .text-section h2 {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  svg {
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .text-section h2 {
+    font-size: 26px;
+    line-height: 1.4;
+  }
+
+  .typewriter h3 {
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .text-section {
+    padding: 0 16px;
+  }
+}
+@media (max-width: 480px) {
+  .text-section h2 {
+    font-size: 24px;
+  }
+
+  .typewriter h3 {
+    font-size: 16px;
+  }
+
+  svg {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  h3 {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 480px) {
+  h3 {
+    font-size: 14px;
+  }
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+@media (max-width: 768px) {
+  .containers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: auto;
+    padding: 10px;
+    z-index: 0;
+  }
+
+  svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    height: auto;
+  }
+
+  #animatedText {
+    x: 30;
+    y: 100;
+    font-size: 100px;
+  }
+}
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  #splash h1 {
+    font-size: 2rem;
+  }
+}
+

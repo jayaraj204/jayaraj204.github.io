@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="contact_style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- Include EmailJS -->
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "xie8d_iBekx8nTGby",
+      });
+   })();
+</script>
+  </head>
+  <body>
+    <div class="container">
+      <span class="big-circle"></span>
+      <img src="img/shape.png" class="square" alt="" />
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Let's get in touch</h3>
+          <p class="text">
+            Reach out for inquiries, collaborations, or support. 
+            We’ll respond promptly to help you.
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <i class="fas fa-map-marker-alt"></i> &nbsp &nbsp
+              <p>Chennai,Tamil Nadu,India</p>
+            </div>
+            <div class="information">
+              <i class="fas fa-envelope"></i> &nbsp &nbsp
+              <p>jayaraj04rk@gmail.com</p>
+            </div>
+            <div class="information">
+              <i class="fas fa-phone"></i>&nbsp&nbsp
+              <p>8971594630</p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Connect me :</p>
+            <div class="social-icons">
+              <a href="https://www.linkedin.com/in/jayaraj2004/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/Jayaraj-04" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.instagram.com/jayholic_04" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <!-- Contact Form -->
+          <div id="response"></div> <!-- This will show the response message -->
+          <a href="about me.HTML" class="back-btn"><i class="fas fa-chevron-left"></i> Back</a>
+          
+          <form id="contact-form" autocomplete="off">
+            <h3 class="title">Contact me</h3>
+            
+            <!-- Username Field -->
+            <div class="input-container">
+              <input type="text" name="name" id="name" class="input" required />
+              <label for="name">Name</label>
+              <span>Username</span>
+            </div>
+
+            <!-- Email Field -->
+            <div class="input-container">
+              <input type="email" name="email" id="email" class="input" required />
+              <label for="email">Email</label>
+              <span>Email</span>
+            </div>
+
+            <!-- Phone Field -->
+            <div class="input-container">
+              <input type="tel" name="phone" id="phone" class="input" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number" />
+              <label for="phone">Phone</label>
+              <span>Phone</span>
+            </div>
+
+            <!-- Message Field -->
+            <div class="input-container textarea">
+              <textarea name="message" id="message" class="input" required></textarea>
+              <label for="message">Message</label>
+              <span>Message</span>
+            </div>
+            
+            <input type="submit" value="Send" onclick="sendMail()" class="btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="contact_script.js"></script>
+    <footer>
+      <p>© 2024 Jayaraj. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
