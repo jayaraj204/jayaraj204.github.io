@@ -15,7 +15,6 @@ body {
   background: #1a1a1a;
   color: #ffffff;
 }
-/* Floating Back Button - Smaller Size */
 .back-btn {
   position: fixed;
   top: 10px;
@@ -23,9 +22,9 @@ body {
   background-color: #ab5852;
   color: #fff;
   border: none;
-  padding: 8px 12px; /* Smaller padding */
+  padding: 8px 12px; 
   border-radius: 5px;
-  font-size: 18px; /* Smaller font size */
+  font-size: 18px; 
   cursor: pointer;
   z-index: 1000;
   text-decoration: none;
@@ -159,35 +158,35 @@ textarea.input {
 
 .btn {
     padding: 0.6rem 1.3rem;
-    background-color: #ab5852; /* Bright Turquoise */
-    border: 2px solid #ab5852; /* Turquoise border */
+    background-color: #ab5852; 
+    border: 2px solid #ab5852; 
     font-size: 0.95rem;
-    color: #ffffff; /* Black text */
+    color: #ffffff; 
     line-height: 1;
     border-radius: 5px;
-    outline: 3px solid rgba(0, 0, 0, 0.3); /* Black outline with transparency */
-    outline-offset: 4px; /* Space between border and outline */
+    outline: 3px solid rgba(0, 0, 0, 0.3); 
+    outline-offset: 4px; 
     cursor: pointer;
     transition: 0.3s;
-    width: 40%; /* Set width to 40% */
-    margin: 1rem auto; /* Center the button horizontally */
-    display: block; /* Ensure it's treated as a block-level element */
+    width: 40%; 
+    margin: 1rem auto; 
+    display: block; 
   }
   
   .btn:hover {
-    background-color: #ffd18e; /* Black background on hover */
-    color: #1a1a1a; /* Turquoise text on hover */
-    outline: 3px solid #ffd18e; /* Change outline to turquoise on hover */
+    background-color: #ffd18e; 
+    color: #1a1a1a; 
+    outline: 3px solid #ffd18e; 
   }
   
   .input {
-    border: 2px solid #ab5852; /* Warm brown pastel */
-    color: #5a2a27; /* Text inside input */
+    border: 2px solid #ab5852; 
+    color: #5a2a27; 
   }
   
   .input-container.focus .input {
-    border-color: #ab5852; /* Warm brownish pastel color */
-    box-shadow: 0 0 8px rgba(171, 88, 82, 0.5); /* Subtle matching glow */
+    border-color: #ab5852; 
+    box-shadow: 0 0 8px rgba(171, 88, 82, 0.5); 
   }    
 
 .input-container span {
@@ -281,11 +280,11 @@ textarea.input {
 }
 
 .social-icons a {
-  width: 40px; /* Increase width */
-  height: 40px; /* Increase height */
-  border-radius: 50%; /* Make icons circular */
-  background: transparent; /* Remove background */
-  color: #ffd18e; /* Make icons white */
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%; 
+  background: transparent; 
+  color: #ffd18e; 
   text-align: center;
   line-height: 40px;
   margin-right: 0.7rem;
@@ -293,18 +292,17 @@ textarea.input {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px; /* Increase icon size */
-  text-decoration: none; /* Remove underline */
-  animation: bounce 1.5s infinite alternate; /* Add bouncing animation */
+  font-size: 24px; 
+  text-decoration: none; 
+  animation: bounce 1.5s infinite alternate; 
 }
 
 .social-icons a:hover {
-  transform: scale(1.3); /* Enlarge on hover */
-  color: #e9ff97; /* Glowing green effect */
-  animation: none; /* Stop bounce on hover */
+  transform: scale(1.3); 
+  color: #e9ff97; 
+  animation: none; 
 }
 
-/* Keyframe for bounce animation */
 @keyframes bounce {
   0% {
     transform: translateY(0);
@@ -451,13 +449,12 @@ footer {
   position: absolute;
   bottom: 20px;
   left: 50%;
-  transform: translateX(-50%); /* Center the footer horizontally */
-  width: auto; /* No width constraint */
-  text-align: center; /* Center the text inside the footer */
+  transform: translateX(-50%); 
+  width: auto; 
+  text-align: center; 
   font-size: 14px;
-  color: #ffffff; /* Ensure the text is visible on the gradient background */
+  color: #ffffff; 
   }
-
 
   @media (max-width: 768px) {
     body {
@@ -514,7 +511,6 @@ footer {
       padding: 6px 12px;
     }
   
-    /* Optional: Hide decorative shapes */
     .circle,
     .square {
       display: none;
@@ -526,12 +522,12 @@ footer {
       padding: 0;
       width: 100%;
       min-height: 100vh;
-      background: black; /* Ensures no white space */
+      background: black; 
       overflow-x: hidden;
     }
   
     .contact-section {
-      margin-top: 70px; /* Creates gap from the Back button */
+      margin-top: 70px; 
       padding: 10px;
       width: 100%;
     }
