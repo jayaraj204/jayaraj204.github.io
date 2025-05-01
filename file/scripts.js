@@ -1,4 +1,3 @@
-// Function to apply typing animation
 function typeWriterEffect(element, duration) {
   return new Promise((resolve) => {
     element.style.animation = `typing ${duration}ms steps(30, end) forwards`;
@@ -6,21 +5,18 @@ function typeWriterEffect(element, duration) {
   });
 }
 
-// Wait for DOM content to load
 document.addEventListener('DOMContentLoaded', () => {
   const splash = document.getElementById('splash');
   const line1 = document.getElementById('line1');
   const line2 = document.getElementById('line2');
 
-  // Hide splash and trigger text animation
   setTimeout(async () => {
     splash.classList.add('hidden');
-    await typeWriterEffect(line1, 3000); // 3s typing
-    await typeWriterEffect(line2, 3000); // then 3s typing
+    await typeWriterEffect(line1, 3000); 
+    await typeWriterEffect(line2, 3000); 
   }, 3200);
 });
 
-// SVG stroke animation loop
 const textElement = document.getElementById("animatedText");
 
 function restartAnimation() {
@@ -35,7 +31,6 @@ function restartAnimation() {
 restartAnimation();
 setInterval(restartAnimation, 10000);
 
-// Particle background animation
 const particlesContainer = document.querySelector('.particles');
 
 function createParticle() {
@@ -60,7 +55,6 @@ function createParticle() {
 }
 setInterval(createParticle, 150);
 
-// Hamburger menu toggle
 document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('nav-menu');
@@ -75,5 +69,5 @@ window.addEventListener('DOMContentLoaded', () => {
   const splash = document.getElementById('splash');
   setTimeout(() => {
     splash.classList.add('hidden');
-  }, 3200); // matches your glowFade 3s + buffer
+  }, 3200); 
 });
