@@ -1,24 +1,24 @@
   particlesJS('particles-js', {
     particles: {
       number: {
-        value: 100,  // Number of particles
+        value: 100,  
         density: {
           enable: true,
-          value_area: 800  // Area covered by particles
+          value_area: 800  
         }
       },
       color: {
-        value: "#ffffff"  // Particle color
+        value: "#ffffff"  
       },
       shape: {
-        type: "circle",  // Shape of particles
+        type: "circle",  
         stroke: {
           width: 0,
           color: "#000000"
         }
       },
       opacity: {
-        value: 0.5,  // Particle opacity
+        value: 0.5,  
         random: true,
         anim: {
           enable: true,
@@ -27,7 +27,7 @@
         }
       },
       size: {
-        value: 3,  // Particle size
+        value: 3,  
         random: true,
         anim: {
           enable: true,
@@ -40,8 +40,8 @@
       },
       move: {
         enable: true,
-        speed: 2,  // Speed of particles falling
-        direction: "bottom",  // Falling direction
+        speed: 2,  
+        direction: "bottom",  
         random: true,
         straight: false,
         out_mode: "out",
