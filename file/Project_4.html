@@ -130,48 +130,46 @@
     }
 
     .nav-circle {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 60px;
-  background-color: var(--accent-color);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #000;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
-  z-index: 999;
-  text-decoration: none;
-  opacity: 0; /* Initially hidden */
-  pointer-events: none; /* Prevent interaction when hidden */
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+    z-index: 999;
+    text-decoration: none;
+    opacity: 0; 
+    pointer-events: none; 
 }
 
 .nav-circle.show {
-  opacity: 1; /* Visible when class is added */
-  pointer-events: auto; /* Allow interaction */
+  opacity: 1; 
+  pointer-events: auto; 
 }
 
 .nav-circle:hover {
-  transform: translateY(-10px) scale(1.1); /* Slightly more prominent hover effect */
+  transform: translateY(-10px) scale(1.1); 
   background-color: #ffc107;
 }
 
-/* Mobile layout adjustments */
 @media screen and (max-width: 768px) {
   .nav-circle {
     width: 50px;
     height: 50px;
     font-size: 20px;
-    bottom: 20px; /* Adjust for smaller screen size */
+    bottom: 20px; 
   }
 }
-
 
     .back-button {
     position: fixed;
@@ -200,14 +198,13 @@
       background-color: var(--accent-color);
       color: #000;
     }
-
-    /* Social Media Icons */
+    
     .social-media {
       margin-top: 20px;
       display: flex;
       gap: 40px;
       position: fixed;
-      bottom: 130px; /* increased from 20px to 90px */
+      bottom: 130px; 
       left: 30%;
       transform: translateX(-50%);
     }
@@ -226,7 +223,6 @@
       animation: none;
     }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -301,7 +297,6 @@
   }
 }
 
-/* Media Queries for Mobile */
 @media (max-width: 768px) {
       body {
         padding: 3rem 1rem 6rem;
@@ -324,8 +319,8 @@
         font-size: 1.2rem;
       }
       .social-media {
-        gap: 20px;
-        bottom: 100px; /* Adjusted for mobile */
+        gap: 40px;
+        bottom: 100px; 
       }
 
       .social-media a {
@@ -437,7 +432,7 @@
     const socialIcons = document.querySelector(".social-media");
     const backButton = document.querySelector(".back-button");
 
-    let lastScrollTop = 0; // Track the last scroll position
+    let lastScrollTop = 0; 
 
     window.onscroll = function () {
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -446,7 +441,6 @@
 
       const isNearBottom = scrollTop + clientHeight >= scrollHeight - 100;
 
-      // Show navCircle and social icons only near the bottom of the page
       if (isNearBottom) {
         navCircle.classList.add("show");
         socialIcons.classList.add("show");
@@ -455,15 +449,12 @@
         socialIcons.classList.remove("show");
       }
 
-      // Back button visibility based on scroll direction
       let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-      // If scrolling down, hide the back button
       if (currentScroll > lastScrollTop) {
         backButton.classList.add("hidden");
       } else {
-        // Scrolling up
-        if (currentScroll <= 50) { // Show back button when near the top
+        if (currentScroll <= 50) { 
           backButton.classList.remove("hidden");
         }
       }
