@@ -1,4 +1,3 @@
-/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -11,16 +10,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ensures the page stretches */
+    min-height: 100vh; 
     text-align: center;
     flex-direction: column;
-    background: #ab5852; /* Dark background for contrast */
-    overflow: auto; /* Allows scrolling */
+    background: #ab5852; 
+    overflow: auto; 
     margin: 0;
     padding: 0;
 }
 
-/* Navigation Styles */
 nav ul {
   list-style: none;
   display: flex;
@@ -38,7 +36,7 @@ nav ul li {
 nav ul li a {
   text-decoration: none;
   font-size: 15px;
-  color: #ffffff; /* White links */
+  color: #ffffff; 
   font-weight: bold;
   padding: 10px 20px;
   display: flex;
@@ -49,7 +47,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #e9ff97; /* Bright blue for hover effect */
+  color: #e9ff97;
   transform: scale(1.05);
 }
 
@@ -81,21 +79,20 @@ nav ul li a:hover i {
 
 nav ul li .resume-button {
   color: #ffffff;
-  background-color: #ff9f8c; /* Blue background */
-  border-radius: 20px; /* Rounded corners */
-  padding: 10px 25px; /* Add padding for a button look */
+  background-color: #ff9f8c; 
+  border-radius: 20px; 
+  padding: 10px 25px; 
   font-weight: bold;
-  position: relative; /* To position the ring around the button */
+  position: relative; 
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
 nav ul li .resume-button:hover {
-  background-color: #ffd18e; /* Darker blue on hover */
-  color: #1a1a1a; /* Glowing yellow text */
-  transform: scale(1.1); /* Slightly enlarge on hover */
+  background-color: #ffd18e; 
+  color: #1a1a1a; 
+  transform: scale(1.1); 
 }
 
-/* Moving light ring on the border */
 nav ul li .resume-button::before {
   content: '';
   position: absolute;
@@ -103,15 +100,14 @@ nav ul li .resume-button::before {
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 20px; /* Rounded corners for the ring */
-  border: 2px solid transparent; /* Invisible border initially */
+  border-radius: 20px; 
+  border: 2px solid transparent; 
   background: transparent;
   box-shadow: 0 0 0 3px #ffd18e, 0 0 0 6px #e9ff97, 0 0 0 9px #ffd18e;
-  animation: movingRing 2s linear infinite; /* Animation for the moving effect */
-  z-index: -1; /* Position the ring behind the text */
+  animation: movingRing 2s linear infinite; 
+  z-index: -1; 
 }
 
-/* Keyframe for moving the ring effect */
 @keyframes movingRing {
   0% {
     box-shadow: 0 0 0 3px #ffd18e, 0 0 0 6px #e9ff97, 0 0 0 9px #ffd18e;
@@ -125,10 +121,9 @@ nav ul li .resume-button::before {
 }
 
 nav ul li .resume-button i {
-  margin-right: 5px; /* Space between icon and text */
+  margin-right: 5px; 
 }
 
-/* Main Content Section */
 .main-content {
   display: flex;
   justify-content: space-between;
@@ -141,7 +136,6 @@ nav ul li .resume-button i {
   margin-top: 120px;
 }
 
-/* Text Section */
 .text-section {
   font-family:  'layfair Display', Sans-serif  ;
   flex: 1;
@@ -153,7 +147,7 @@ nav ul li .resume-button i {
 .text-section h1 {
   font-size: 40px;
   color: rgb(255, 255, 255);
-  margin-top: -30px; /* Adjusted to bring it higher */
+  margin-top: -30px; 
 }
 
 .text-section span {
@@ -178,7 +172,6 @@ nav ul li .resume-button i {
   transform: scale(1.2);
 }
 
-/* Text Animation */
 @keyframes slideInText {
   0% {
     opacity: 0;
@@ -190,8 +183,6 @@ nav ul li .resume-button i {
   }
 }
 
-/* Image Section */
-/* Image Section Container */
 .image-section {
   flex: 1;
   display: flex;
@@ -201,7 +192,6 @@ nav ul li .resume-button i {
   animation: slideInFromRight 1.5s ease-out forwards;
 }
 
-/* Wrapper for image and corner frames */
 .image-wrapper {
   position: relative;
   width: 400px;
@@ -211,7 +201,6 @@ nav ul li .resume-button i {
   overflow: visible; /* allow corners to go outside */
 }
 
-/* Image Styling */
 .image-wrapper img {
   width: 100%;
   height: 100%;
@@ -220,7 +209,6 @@ nav ul li .resume-button i {
   animation: glow 2s ease-in-out infinite;
 }
 
-/* Corner frame style */
 .corner {
   position: absolute;
   width: 60px;
@@ -228,7 +216,6 @@ nav ul li .resume-button i {
   z-index: 2;
 }
 
-/* Top-left corner slightly outside */
 .corner-top-left {
   top: -20px;
   left: -20px;
@@ -237,7 +224,6 @@ nav ul li .resume-button i {
   border-top-left-radius: 20px;
 }
 
-/* Bottom-right corner slightly outside */
 .corner-bottom-right {
   bottom: -20px;
   right: -20px;
@@ -246,16 +232,15 @@ nav ul li .resume-button i {
   border-bottom-right-radius: 20px;
 }
 
-/* Glow Animation */
 @keyframes glow {
   0% {
-    box-shadow: 0 0 10px rgba(255, 209, 142, 0.5); /* soft pastel orange glow */
+    box-shadow: 0 0 10px rgba(255, 209, 142, 0.5); 
   }
   50% {
-    box-shadow: 0 0 20px rgba(255, 209, 142, 0.8); /* stronger mid glow */
+    box-shadow: 0 0 20px rgba(255, 209, 142, 0.8); 
   }
   100% {
-    box-shadow: 0 0 10px rgba(255, 209, 142, 0.5); /* soft glow again */
+    box-shadow: 0 0 10px rgba(255, 209, 142, 0.5); 
   }
 }
 
@@ -263,34 +248,32 @@ nav ul li .resume-button i {
   margin-top: 20px;
   display: flex;
   gap: 40px;
-  justify-content: center; /* Center aligns the social media icons */
+  justify-content: center; 
 }
 
 .social-media a {
   text-decoration: none;
-  color: #ffd18e; /* Default white color for the icons */
+  color: #ffd18e; 
   font-size: 24px;
   transition: transform 0.3s ease, color 0.3s ease;
-  animation: bounce 1.5s infinite alternate; /* Bouncing effect */
+  animation: bounce 1.5s infinite alternate; 
 }
 
 .social-media a:hover {
-  color: #e9ff97; /* Glowing blue effect on hover */
-  transform: scale(1.3); /* Enlarge the icon slightly */
-  animation: none; /* Stop the bounce animation on hover */
+  color: #e9ff97; 
+  transform: scale(1.3); 
+  animation: none; 
 }
 
-/* Keyframes for Bounce Effect */
 @keyframes bounce {
   0% {
-    transform: translateY(0); /* Default position */
+    transform: translateY(0);
   }
   100% {
-    transform: translateY(-10px); /* Slight upward movement */
+    transform: translateY(-10px); 
   }
 }
 
-/* Typewriter Effect */
 .line {
   font-size: 24px;
   font-weight: bold;
@@ -299,7 +282,6 @@ nav ul li .resume-button i {
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
-/* SVG Stroke Animation */
 #animatedText {
   font-size: 48px;
   font-weight: bold;
@@ -310,7 +292,7 @@ nav ul li .resume-button i {
   stroke-dashoffset: 1000;
 }
 .line {
-  font-size: 16px; /* Reduced font size */
+  font-size: 16px; 
     opacity: 0;
     transform: translateY(10px);
     animation: fadeInUp 0.4s ease-in-out forwards;
@@ -335,19 +317,17 @@ nav ul li .resume-button i {
   }
 }
 
-/* Particle Background Styling */
 .particles {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* So particles don't block interaction with other elements */
-  z-index: -1; /* Make sure particles are always behind content */
-  overflow: hidden; /* Hide particles that move outside the viewport */
+  pointer-events: none; 
+  z-index: -1; 
+  overflow: hidden; 
 }
 
-/* Particle Styling */
 .particle {
   position: absolute;
   border-radius: 50%;
@@ -355,7 +335,6 @@ nav ul li .resume-button i {
   animation: particleAnimation 5s linear infinite;
 }
 
-/* Add an animation to move particles */
 @keyframes particleAnimation {
   0% {
     transform: translate(0, 0);
@@ -380,66 +359,64 @@ nav ul li .resume-button i {
   }
 }
 
-/* Mobile Styles */
 @media (max-width: 768px) {
   nav ul {
-    flex-direction: column; /* Stack navigation items vertically */
-    position: static; /* Remove absolute positioning */
-    top: auto; /* Reset top positioning */
-    right: auto; /* Reset right positioning */
-    gap: 10px; /* Reduce gap between items */
+    flex-direction: column; 
+    position: static; 
+    top: auto; 
+    right: auto; 
+    gap: 10px; 
   }
 
   nav ul li a {
-    font-size: 16px; /* Slightly larger font size for better readability */
-    padding: 8px 15px; /* Adjust padding for smaller screens */
+    font-size: 16px; 
+    padding: 8px 15px; 
   }
 
   .main-content {
-    flex-direction: column; /* Stack main content vertically */
-    align-items: center; /* Center align items */
-    width: 90%; /* Use more width on mobile */
-    gap: 20px; /* Reduce gap between sections */
+    flex-direction: column; 
+    align-items: center; 
+    width: 90%; 
+    gap: 20px; 
   }
 
   .text-section {
-    font-size: 14px; /* Smaller font size for text */
-    line-height: 1.5; /* Adjust line height for better readability */
+    font-size: 14px; 
+    line-height: 1.5; 
   }
   @media (max-width: 768px) {
     .text-section {
-      margin-top: 30px; /* Adjust the value as needed */
+      margin-top: 30px; 
     }
   }
   
   .text-section h1 {
-    font-size: 28px; /* Smaller heading size */
+    font-size: 28px; 
   }
 
   .image-section {
-    justify-content: center; /* Center the image */
-    margin-top: 20px; /* Add margin for spacing */
+    justify-content: center; 
+    margin-top: 20px; 
   }
 
   .image-section img {
-    width: 100%; /* Make image responsive */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 400px; /* Limit max width for smaller screens */
+    width: 100%; 
+    height: auto; 
+    max-width: 400px; 
     height: 500px;
     margin: 0 auto;
   }
 
   .social-media {
-    flex-direction: column; /* Stack social media icons vertically */
-    gap: 20px; /* Increase gap for better spacing */
+    flex-direction: column; 
+    gap: 20px; 
   }
 
   .social-media a {
-    font-size: 20px; /* Slightly smaller icons */
+    font-size: 20px; 
   }
 }
 
-/* Skills Section */
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
@@ -448,11 +425,10 @@ nav ul li .resume-button i {
   padding: 20px;
   margin: 20px;
 }
-/* Skills Section */
 .section-container h2 {
   font-size: 30px;
   color: #e9ff97;
-  margin-top: 60px; /* Adds space above the Skills header */
+  margin-top: 60px; 
 }
 
 .skill {
@@ -480,7 +456,6 @@ nav ul li .resume-button i {
   100% { transform: translateY(-10px); }
 }
 
-/* Timeline Styles */
 .timeline {
   position: relative;
   max-width: 800px;
@@ -530,20 +505,20 @@ footer {
   position: fixed;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%); /* Center the footer horizontally */
-  width: 100%;/* No width constraint */
-  text-align: center; /* Center the text inside the footer */
+  transform: translateX(-50%); 
+  width: 100%;
+  text-align: center; 
   font-size: 14px;
-  color: #ffffff; /* Ensure the text is visible on the gradient background */
+  color: #ffffff; 
   padding: 10px 0;
   transition: opacity 0ms ease-in-out;
-  opacity: 0; /* Initially hidden */
-  visibility: hidden; /* Initially not visible */
+  opacity: 0; 
+  visibility: hidden; 
   transition: opacity 0.1s ease-in-out, visibility 0.1s ease-in-out;
 }
 .hidden-footer {
   opacity: 0;
-  pointer-events: none; /* Prevents interaction when hidden */
+  pointer-events: none; 
 }
 
 #typewriter::after {
@@ -556,7 +531,6 @@ footer {
   50% { opacity: 0; }
 }
 
-/* Hamburger Menu */
 .hamburger {
   position: fixed;
   top: 20px;
@@ -589,7 +563,6 @@ footer {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Navigation Styles */
 nav ul {
   list-style: none;
   display: flex;
@@ -600,14 +573,12 @@ nav ul {
   padding: 0;
 }
 
-/* Hide hamburger menu on desktop */
 @media (min-width: 769px) {
   .hamburger {
     display: none !important;
   }
 }
 
-/* Global mobile styles */
 @media (max-width: 768px) {
   nav ul {
     display: none;
@@ -787,7 +758,6 @@ nav ul {
   }
 }
 
-/* Hide hamburger menu on scroll */
 .hide-hamburger {
   opacity: 0;
   pointer-events: none;
