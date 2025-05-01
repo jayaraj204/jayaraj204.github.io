@@ -1,6 +1,5 @@
 const particlesContainer = document.querySelector('.particles');
 
-// Particle creation
 function createParticle() {
   const particle = document.createElement('div');
   particle.classList.add('particle');
@@ -25,7 +24,6 @@ function createParticle() {
 
 setInterval(createParticle, 150);
 
-// Footer hide on scroll
 document.addEventListener("DOMContentLoaded", function () {
   const footer = document.querySelector("footer");
 
@@ -40,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Typewriter effect
 function typeWriterEffect(element, delay) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -79,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
   animateText();
 });
 
-// Stroke animation
 const textElement = document.getElementById("animatedText");
 
 function restartAnimation() {
@@ -97,7 +93,6 @@ function restartAnimation() {
 restartAnimation();
 setInterval(restartAnimation, 10000);
 
-// Hamburger menu toggle and hide on scroll
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 
