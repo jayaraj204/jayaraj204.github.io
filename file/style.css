@@ -1,16 +1,14 @@
-/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Container Background */
 .containers.body {
   background-color: #000;
 }
- /* Ensure the container takes full width and is responsive */
- .containers {
+
+.containers {
   width: 100%;
   max-width: 100%;
   display: flex;
@@ -18,14 +16,12 @@
   align-items: center;
 }
 
-/* Adjust the font size for very small screens */
 @media (max-width: 480px) {
   svg text {
     font-size: 15vw; 
   }
 }
 
-/* SVG Styling */
 svg {
   position: absolute;
   top: -5%;
@@ -48,11 +44,10 @@ text {
   filter: drop-shadow(0 0 5px #ffffff);
 }
 
-/* Body Styling */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #ab5852; /* pure black */
-  color: #ffffff; /* very soft light text for contrast */
+  background-color: #ab5852; 
+  color: #ffffff; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +60,6 @@ body {
 
 }
 
-/* Navigation Styles */
 nav ul {
   list-style: none;
   display: flex;
@@ -125,7 +119,6 @@ nav ul li a:hover i {
   color: #e9ff97;
 }
 
-/* Resume Button */
 nav ul li .resume-button {
   background-color: #ff9f8c;
   color: #ffffff;
@@ -142,7 +135,6 @@ nav ul li .resume-button:hover {
   transform: scale(1.05);
 }
 
-/* Glowing Ring Effect */
 nav ul li .resume-button::before {
   content: '';
   position: absolute;
@@ -158,7 +150,6 @@ nav ul li .resume-button::before {
   z-index: -1;
 }
 
-/* Keyframe for Ring Animation */
 @keyframes movingRing {
   0% {
     box-shadow: 0 0 0 3px #ffd18e, 0 0 0 6px #e9ff97, 0 0 0 9px #ffd18e;
@@ -171,8 +162,6 @@ nav ul li .resume-button::before {
   }
 }
 
-/* Typing Effect for <h3> */
-/* Typing effect base */
 .typewriter h3 {
   font-family: 'Playfair Display', cursive;
   font-size: 110%;
@@ -184,17 +173,14 @@ nav ul li .resume-button::before {
   color: #ffffff;
 }
 
-/* Typing Keyframe */
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
 }
 
-
-/* Headings */
 h1 {
   font-size: 36px;
-  color: #FFD18E; /* soft light purple */
+  color: #FFD18E; 
   position: absolute;
   top: 20px;
   left: 20px;
@@ -209,10 +195,9 @@ h2 {
   font-family: 'Playfair Display', monospace;
   font-size: 36px;
   margin-bottom: 10px;
-  color: #ffffff; /* medium purple */
+  color: #ffffff; 
 }
 
-/* Main Content */
 .main-content {
   position: relative;
   display: flex;
@@ -220,7 +205,7 @@ h2 {
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  margin-top: -10px; /* move it up */
+  margin-top: -10px; 
   gap: 30px;
   flex-wrap: wrap;
   text-align: left;
@@ -264,7 +249,6 @@ h2 {
   animation: fadeIn 2s 0.5s forwards, increaseSize 2s 0.5s forwards;
 }
 
-/* Social Media Icons */
 .social-media {
   margin-top: 20px;
   display: flex;
@@ -285,7 +269,6 @@ h2 {
   animation: none;
 }
 
-/* Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -316,14 +299,11 @@ h2 {
   }
 }
 
-/* Highlighted Text */
 .highlight {
-  color: #ffd18e; /* soft coral */
+  color: #ffd18e; 
   font-weight: bold;
 }
 
-
-/* Footer */
 footer {
   position: absolute;
   bottom: 20px;
@@ -344,8 +324,6 @@ footer {
   }
 }
 
-
-/* Particle Effects */
 .particles {
   position: absolute;
   top: 0;
@@ -385,7 +363,6 @@ header {
   padding: 20px 0;
 }
 
-/* Splash Screen */
 #splash {
   position: fixed;
   top: 0;
@@ -395,21 +372,20 @@ header {
   background-color: black;
   display: flex;
   justify-content: center;
-  align-items: flex-start;  /* align items to top */
+  align-items: flex-start;  
   z-index: 9999;
   transition: opacity 0.5s ease;
 }
 
 .splash-name {
-  font-size: clamp(2rem, 6vw, 4rem);  /* responsive */
+  font-size: clamp(2rem, 6vw, 4rem); 
   color: white;
-  margin: 280px auto 0 auto; /* vertical margin + center horizontally */
+  margin: 280px auto 0 auto; 
   text-align: center;
   font-family: 'Mightype Script', 'Montserrat', sans-serif;
   text-shadow: 0 0 10px white, 0 0 20px white;
   animation: glowFade 3s ease-in-out forwards;
 }
-
 
 @keyframes glowFade {
   0% {
@@ -425,7 +401,6 @@ header {
   }
 }
 
-
 #splash.hidden {
   opacity: 0;
   visibility: hidden;
@@ -438,7 +413,6 @@ header {
   height: auto;
 }
 
-/* Hamburger Menu Styling */
 .hamburger {
   position: fixed; 
   top: 20px; 
@@ -459,7 +433,6 @@ header {
   transition: 0.4s;
 }
 
-/* 'X' transformation */
 .hamburger.open span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -470,7 +443,6 @@ header {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Responsive Menu */
 @media (max-width: 768px) {
   nav {
     position: relative;
@@ -533,7 +505,6 @@ header {
   }
 }
 
-/* Remove typing animation in mobile */
 @media (max-width: 768px) {
   #line1,
   #line2 {
