@@ -35,7 +35,7 @@ svg {
 text {
   fill: url(#imagePattern);
   font-family: "Protest Guerrilla", sans-serif;
-  font-size: 20px;
+  font-size: 25px;
   letter-spacing: 5px;
   stroke: #ffffff;
   stroke-width: 1px;
@@ -378,26 +378,30 @@ header {
 }
 
 .splash-name {
-  font-size: clamp(2rem, 6vw, 4rem); 
+  font-size: clamp(3rem, 8vw, 6rem); 
+  font-family: 'Cormorant Upright', serif;
+  font-weight: 700;
   color: white;
-  margin: 280px auto 0 auto; 
+  margin: 280px auto; 
   text-align: center;
-  font-family: 'Mightype Script', 'Montserrat', sans-serif;
-  text-shadow: 0 0 10px white, 0 0 20px white;
+  right: 10px;
+  font-family: 'Bona Nova', serif;
+  font-variant: small-caps;
+  text-shadow: 0 0 10px rgb(173, 173, 173), 0 0 20px rgb(173, 173, 173);
   animation: glowFade 3s ease-in-out forwards;
 }
 
 @keyframes glowFade {
-  0% {
-    opacity: 0;
-    text-shadow: none;
+0% {
+  opacity: 0;
+  text-shadow: none;
   }
-  50% {
-    opacity: 1;
-    text-shadow: 0 0 10px white, 0 0 20px white;
+50% {
+  opacity: 1;
+  text-shadow: 0 0 10px rgb(173, 173, 173), 0 0 20px rgb(173, 173, 173);
   }
-  100% {
-    opacity: 0;
+100% {
+  opacity: 0;
   }
 }
 
@@ -522,8 +526,13 @@ header {
   }
 }
 @media (max-width: 600px) {
-  .splash-name {
-    margin: 150px auto 0 auto;
+  #splash {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: center;      
+    height: 100vh;
+    text-align: center;
   }
 }
 
@@ -680,8 +689,14 @@ header {
 }
 
 @media (max-width: 600px) {
-  #splash h1 {
+ #splash h1 {
     font-size: 2rem;
-  }
+    margin: 0;
+    transform: translateY(200px); /* Move slightly upward */
+    }
+
+  .splash-name {
+    margin: 0;
+    }
 }
 
