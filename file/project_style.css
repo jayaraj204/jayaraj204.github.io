@@ -471,8 +471,8 @@ h1 {
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
-    width: 22px;           
-    height: 14px;          
+    width: 25px;           
+    height: 15px;          
     top: 12px;
     right: 12px;
   }
